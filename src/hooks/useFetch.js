@@ -1,18 +1,33 @@
 import { useEffect, useState } from "react"
-export default function useFetch(url) {
+
+export default function useFetch(url,method="GET") {
     const [data,setData] = useState(null);
     const [isPending, setIsPending] = useState(false);
-    const [error,setError] = useState(null)
+    const [error,setError] = useState(null);
+    const [options,setOptions] = useState(null);
+
+    const postData = (newData) => {
+        setOptions({
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify(newData) // turns js object to json string
+            })
+    }
+
     useEffect(() => {
 
-        const controller = new AbortController(); // for abort request to fetch data
+        const controller = new AbortController(); // for abort request when fetching data
 
-        const fetchData = async () => {
+        const fetchData = async (fetchOptions) => {
             setIsPending(true);
 
             try{
-                const res = await fetch(url, {signal:controller.signal});
+                const res = await fetch(url, {...fetchOptions,signal:controller.signal});
+                
                 const fetchedJSON = await res.json();
+
                 if(!res.ok){
                     throw new Error(res.statusText)
                 }
@@ -36,12 +51,23 @@ export default function useFetch(url) {
 
         }
 
-        fetchData(); // call fetchData to fetch data
+        //  if just wanna fetch data then call  fetchData without argument
+        if(method === "GET"){
+            fetchData();
+        }
+        if(method === "POST" && options){
+            fetchData(options)
+        }
 
         return () =>{
             controller.abort();
         }
 
-    }, [url])
-    return {data, isPending, error}
+        // if options has some value then rerender page
+        // for method change also rerender the page
+    }, [url,options,method])
+
+    
+    
+    return {data, isPending, error, postData}
 }
