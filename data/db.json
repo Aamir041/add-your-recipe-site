@@ -36,6 +36,21 @@
       ],
       "method": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse minima ex rem quis similique eum ratione quaerat, voluptas molestias ut repudiandae delectus voluptates. Eius esse at tenetur ab accusamus excepturi?",
       "cookingTime": "35 minutes"
+    },
+    {
+      "title": "Vada Pav",
+      "ingredients": [
+        "bun",
+        "potato",
+        "chick pea flour",
+        "turmeric",
+        "salt",
+        "coriander",
+        "cumin"
+      ],
+      "method": "1-> boil the patatos, then mash them\n2-> make a potato filling by cooking those mashed potatos with turmeric,cumin,\n3-> make puck of those cooked potatos and coat them with chickpea flour, make sure check pea flour consitency is not so runny\n4-> then fry them\n5-> make sandwhich with bun  ",
+      "cookingTime": "7 minutes",
+      "id": "BEhoAhM"
     }
   ]
 }
