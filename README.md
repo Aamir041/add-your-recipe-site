@@ -6,7 +6,7 @@
 - useState
 - useEffect
 - useReducer
-= useContext
+- useContext
 - useHistory
 
 ## Custom Hooks
