@@ -42,10 +42,11 @@ export default function Create() {
     if(data){
       history.push("/");
     }
-  },[data])
+  },[data,history])
 
   return (
     <div className={`create ${mode}`}>
+    {error && <div>{error}</div>}
       <h2 className="page-title">Add a New Recipe</h2>
 
       <form onSubmit={handleSubmit}>
