@@ -2,6 +2,17 @@
 
 - To use react router dom in React 18 remove `<React.StrictMode>` **from index.js**
 
+## Hooks used
+- useState
+- useEffect
+- useReducer
+= useContext
+- useHistory
+
+## Custom Hooks
+- useTheme
+- useFetch
+
 ## To run application
 - Download file
 - Extract downloaded folder
@@ -12,9 +23,6 @@
 - After installing type `npm run`
 - and got to `http://localhost:3001/` on your favorite browser.
 - N Enjoy `Happy Developing` :)
-
-
-
 
 
 https://user-images.githubusercontent.com/76783873/215352585-0b759fff-0edd-4e15-b163-8904e2508353.mp4
