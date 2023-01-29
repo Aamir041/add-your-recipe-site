@@ -2,6 +2,7 @@ import "./Recipe.css"
 import { useParams } from "react-router-dom"
 import useFetch from "../../hooks/useFetch";
 import React from "react";
+import useTheme from "../../hooks/useTheme";
 
 // React.Fragment is used si that we don't bloat html
 
@@ -13,8 +14,10 @@ export default function Recipe() {
 
   const {data:recipe,isPending,error} = useFetch(url); // grabbing data
 
+  const {mode} = useTheme();
+
   return (
-    <div className="recipe">
+    <div className={`recipe ${mode}`}>
     {error && <div className="error"> A Error has Occurred</div>}
     {isPending && <div className="loading">Loading ...</div>}
       {recipe && (
